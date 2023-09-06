@@ -3,7 +3,7 @@ import { connectDB } from "@/util/database";
 export default async function handler(request, response) {
   if (request.method == "POST") {
     if (request.body.title == "") {
-      return;
+      return response.status(500).json("제목 안씀");
     }
 
     let today = new Date();

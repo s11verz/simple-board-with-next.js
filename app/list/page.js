@@ -19,8 +19,11 @@ const ListItem = (props) => {
     <div className="list-item">
       <Link href={`/detail/${props.id}`}>
         <h4>{props.title}</h4>
-      </Link>{" "}
+      </Link>
       <p>{props.date}</p>
+      <Link href={`/edit/${props.id}`} className="edit-button">
+        수정
+      </Link>
     </div>
   );
 };

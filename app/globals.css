@@ -61,6 +61,9 @@ a {
 .navbar {
   background: white;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .navbar a {
   margin-right: 10px;
@@ -81,4 +84,10 @@ a {
 .list-item {
   opacity: 1;
   transition: all 1s;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }

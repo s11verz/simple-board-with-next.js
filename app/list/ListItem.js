@@ -19,20 +19,21 @@ export default function ListItem({ result }) {
               <div
                 className="delete-button"
                 onClick={(e) => {
-                  fetch("/api/post/delete", {
-                    method: "DELETE",
-                    body: { _id: item._id },
-                  })
-                    .then((r) => {
-                      r.json();
-                    })
-                    .then(() => {
-                      e.target.parentElement.parentElement.style.opacity = 0;
-                      setTimeout(() => {
-                        e.target.parentElement.parentElement.style.display =
-                          "none";
-                      }, 1000);
-                    });
+                //   fetch("/api/post/delete", {
+                //     method: "DELETE",
+                //     body: { _id: item._id },
+                //   })
+                //     .then((r) => {
+                //       r.json();
+                //     })
+                //     .then(() => {
+                //       e.target.parentElement.parentElement.style.opacity = 0;
+                //       setTimeout(() => {
+                //         e.target.parentElement.parentElement.style.display =
+                //           "none";
+                //       }, 1000);
+                //     });
+                fetch('/api/abc/kim')
                 }}
               >
                 삭제

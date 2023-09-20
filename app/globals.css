@@ -91,3 +91,14 @@ a {
   align-items: center;
   justify-content: end;
 }
+
+.divider {
+  width: 10px;
+}
+
+.dark-mode .navbar {
+  background: #222;
+}
+.dark-mode .navbar a {
+  color: white;
+}

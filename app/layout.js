@@ -5,6 +5,8 @@ import LoginButton from "./loginButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import LogoutButton from "./logoutButton";
+import RegisterButton from "./registerButton";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +17,14 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
-  console.log(session);
+
+  let res = cookies().get("mode");
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={res !== undefined && res.value == "dark" ? "dark-mode" : ""}
+      >
         <div className="navbar">
           <div>
             <Link href="/" className="logo">
@@ -28,11 +34,16 @@ export default async function RootLayout({ children }) {
           </div>
           <div>
             {session == null ? (
-              <LoginButton />
+              <div className="login-container">
+                <LoginButton />
+                <div className="divider"></div>
+                <RegisterButton />
+              </div>
             ) : (
               <>
                 <div className="login-container">
                   <div>{session.user.name}님 안녕하세요!</div>
+                  <div className="divider"></div>
                   <LogoutButton />
                 </div>
               </>
